@@ -4,13 +4,13 @@
             <div class="form w-50 m-auto">
                 <div class="row">
                     <div class="col-lg-6">
-                        <input [class.is-valid]="signUp.get('first_name').valid" formControlName="first_name" type="text" class="form-control my-3" placeholder="Enter First-Name">
+                        <input [class.is-valid]="signUp.get('first_name').valid" formControlName="first_name" type="text" class="form-control my-3" placeholder="Enter First-Name Must included Captial letter">
                         <div *ngIf="signUp.controls.first_name.errors && signUp.controls.first_name.touched" class="alert alert-danger" role="alert">
                           First Name is Required 
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <input type="text" [class.is-valid]="signUp.get('last_name').valid" formControlName="last_name" class="form-control my-3" placeholder="Enter Last-Name">
+                        <input type="text" [class.is-valid]="signUp.get('last_name').valid" formControlName="last_name" class="form-control my-3" placeholder="Enter Last-Name Must included Captial letter">
                         <div *ngIf="signUp.controls.last_name.errors && signUp.controls.last_name.touched" class="alert alert-danger" role="alert">
                             Last Name is Required 
                           </div>
