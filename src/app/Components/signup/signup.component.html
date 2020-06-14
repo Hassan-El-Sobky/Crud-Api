@@ -1,0 +1,43 @@
+<section id="signUp">
+    <div class="container">
+        <form [formGroup]="signUp" (ngSubmit)="signUp.valid&&formData()">
+            <div class="form w-50 m-auto">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <input [class.is-valid]="signUp.get('first_name').valid" formControlName="first_name" type="text" class="form-control my-3" placeholder="Enter First-Name">
+                        <div *ngIf="signUp.controls.first_name.errors && signUp.controls.first_name.touched" class="alert alert-danger" role="alert">
+                          First Name is Required 
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <input type="text" [class.is-valid]="signUp.get('last_name').valid" formControlName="last_name" class="form-control my-3" placeholder="Enter Last-Name">
+                        <div *ngIf="signUp.controls.last_name.errors && signUp.controls.last_name.touched" class="alert alert-danger" role="alert">
+                            Last Name is Required 
+                          </div>
+                    </div>
+                </div>
+                <input  formControlName="age" [class.is-valid]="signUp.get('age').valid" placeholder="Enter your Age" type="number" class="form-control my-3">
+                <div *ngIf="signUp.controls.age.errors && signUp.controls.age.touched" class="alert alert-danger" role="alert">
+                    Age is Required 
+                  </div>
+                <input [class.is-valid]="signUp.get('email').valid" formControlName="email" placeholder="Enter your Email" type="email" class="form-control my-3">
+                <div *ngIf="signUp.controls.email.errors && signUp.controls.email.touched" class="alert alert-danger" role="alert">
+                    Email is Required 
+                  </div>
+                  <div *ngIf="unique"  class="alert alert-danger text-center" role="alert">
+                    <h4 class="alert-heading"></h4>
+                    {{uniqueEmail}}
+                  </div>
+                <input [class.is-valid]="signUp.get('password').valid" formControlName="password" type="password" placeholder="password must include capital letter , number and @" class="form-control my-3">
+                <div *ngIf="signUp.controls.password.errors && signUp.controls.password.touched" class="alert alert-danger" role="alert">
+                    Please enter password 
+                  </div>
+                <button [disabled]="signUp.invalid" class="btn btn-dark w-100"> <span *ngIf="isCliked">Save</span> <span *ngIf="!isCliked">Waiting..</span> </button>
+            <div *ngIf="mSuccess"  class="alert alert-success text-center" role="alert">
+             <h4 class="alert-heading"></h4>
+             {{resMessage}}
+           </div>
+              </div>
+        </form>
+    </div>
+</section>

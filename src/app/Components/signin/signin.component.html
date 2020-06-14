@@ -1,0 +1,26 @@
+<section id="signIn">
+    <div class="container">
+        <form [formGroup]="signIn" (ngSubmit)="signIn.valid&&formData()">
+            <div class="form w-50 m-auto">
+
+
+                <input [class.is-valid]="signIn.get('email').valid" formControlName="email" placeholder="Enter your Email" type="email" class="form-control my-3">
+                <div *ngIf="signIn.controls.email.errors && signIn.controls.email.touched " class="alert alert-danger" role="alert">
+                  Email is required
+                </div>
+                <input [class.is-valid]="signIn.get('password').valid"  formControlName="password" type="password" placeholder="Enter your password" class="form-control my-3">
+                <div *ngIf="signIn.controls.email.errors && signIn.controls.email.touched " class="alert alert-danger" role="alert">
+                    Password is required
+                  </div>
+                <button [disabled]="signIn.invalid" class="btn btn-dark w-100"> <span *ngIf="!flag">Sign-In</span> <span *ngIf="flag">Waiting ....</span> </button>
+               <div  *ngIf="success" class="alert alert-success" role="alert">
+                {{sMessage}}
+              </div>
+
+              <div  *ngIf="errormessage" class="alert alert-danger" role="alert">
+                {{eMessage}}
+              </div>
+            </div>
+        </form>
+    </div>
+</section>
